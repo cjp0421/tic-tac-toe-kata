@@ -1,95 +1,58 @@
 import Image from 'next/image'
 import styles from './page.module.css'
+import React, { useState } from 'react';
 
 export default function Home() {
+
+  type SquareValue = 'X' | 'O' | null;
+
+  interface SquareProps {
+    // TODO: Define the SquareProps interface - i.e. what types of props the Square should accept
+  }
+
+  //React.FC is a generic Typescript type provided by React for defining functional components
+  //Using React.FC explicitly types is as a functional component and indicates that is should be used as a React component
+  const Square: React.FC<SquareProps> = ({ /* TODO: Square component props */ }) => ( //represents a square in a Tic Tac Toe game
+    // TODO: Square component implementation
+);
+
+  interface BoardProps {
+    // TODO: Define the BoardProps interface
+  }
+
+  const Board: React.FC<BoardProps> = ({ /* TODO: Board component props */ }) => {
+    // TODO: Board component implementation
+  };
+
+  const calculateWinner = (squares: SquareValue[]): SquareValue | null => {
+    // TODO: Implement the logic to calculate the winner
+    return null;
+  };
+
+  const App: React.FC = () => {
+    // TODO: Define state and functions needed for the game
+
+    // TODO: Implement the handleClick function
+
+    const winner = calculateWinner(/* TODO: pass the squares state here */);
+    const status = winner
+      ? `Winner: ${winner}`
+      : `Next player: ${/* TODO: determine the next player */}`
+  };
+
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <h1>Tic-Tac-Toe Starter Code</h1>
+      <div className="game">
+        <div className="game-board">
+          {/* TODO: Render the Board component */}
+        </div>
+        <div className="game-info">
+          <div>{status}</div>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   )
 }
